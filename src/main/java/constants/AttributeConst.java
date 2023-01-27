@@ -47,7 +47,15 @@ public enum AttributeConst {
     REP_ID("id"),
     REP_DATE("report_date"),
     REP_TITLE("title"),
-    REP_CONTENT("content_msg");
+    REP_CONTENT("content_msg"),
+
+    // 勤怠管理
+    KINTAI("kintai"),
+    KINTAI_COUNT("kintai_count"),
+    KINTAI_ID("kintai_id"),
+    KINTAI_DATE("kintai_date"),
+    KINTAI_BEGIN("kintai_begin"),
+    KINTAI_FINISH("kintai_finish");
 
     private final String text;
     private final Integer i;

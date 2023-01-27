@@ -6,10 +6,12 @@ import java.util.List;
 import javax.servlet.ServletException;
 
 import actions.views.EmployeeView;
+import actions.views.KintaiView;
 import actions.views.ReportView;
 import constants.AttributeConst;
 import constants.ForwardConst;
 import constants.JpaConst;
+import services.KintaiService;
 import services.ReportService;
 
 /**
@@ -19,6 +21,7 @@ import services.ReportService;
 public class TopAction extends ActionBase {
 
     private ReportService service;
+    private KintaiService service_k;
 
     /**
      * indexメソッドを実行する
@@ -27,11 +30,13 @@ public class TopAction extends ActionBase {
     public void process() throws ServletException, IOException {
 
         service = new ReportService();
+        service_k = new KintaiService();
 
         //メソッドを実行
         invoke();
 
         service.close();
+        service_k.close();
 
     }
 
@@ -47,11 +52,25 @@ public class TopAction extends ActionBase {
         int page = getPage();
         List<ReportView> reports = service.getMinePerPage(loginEmployee, page);
 
+
+        //ログイン中の従業員が作成した勤怠データを、指定されたページ数の一覧画面に表示する分取得する
+        List<KintaiView> kintai = service_k.getMinePerPage(loginEmployee, page);
+
+
         //ログイン中の従業員が作成した日報データの件数を取得
         long myReportsCount = service.countAllMine(loginEmployee);
 
+        //ログイン中の従業員が作成した勤怠情報の件数を取得
+        long myKintaiCount = service_k.countAllMine(loginEmployee);
+
         putRequestScope(AttributeConst.REPORTS, reports); //取得した日報データ
         putRequestScope(AttributeConst.REP_COUNT, myReportsCount); //ログイン中の従業員が作成した日報の数
+        putRequestScope(AttributeConst.PAGE, page); //ページ数
+        putRequestScope(AttributeConst.MAX_ROW, JpaConst.ROW_PER_PAGE); //1ページに表示するレコードの数
+
+
+        putRequestScope(AttributeConst.KINTAI, kintai); //取得した勤怠データ
+        putRequestScope(AttributeConst.KINTAI_COUNT, myKintaiCount); //ログイン中の従業員が登録した勤怠の数
         putRequestScope(AttributeConst.PAGE, page); //ページ数
         putRequestScope(AttributeConst.MAX_ROW, JpaConst.ROW_PER_PAGE); //1ページに表示するレコードの数
 

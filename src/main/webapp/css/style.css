@@ -162,3 +162,36 @@ pre {
 h3 {
     font-size: larger;
 }
+
+table#kintai_list th {
+    font-weight: bold;
+    padding: 10px 2%;
+}
+
+table#kintai_list .kintai_name {
+    width: 20%;
+    padding: 10px 2%;
+}
+table#kintai_list .kintai_date {
+    width: 20%;
+}
+
+table#kintai_list .kintai_begin {
+    width: 37%;
+}
+
+table#kintai_list .kintai_finish {
+    width: 37%;
+}
+
+table#kintai_list .kintai_action {
+    width: 13%;
+}
+
+pre {
+    font-family: "Hiragino Kaku Gothic Pro",Meiryo,"MS PGothic",Helvetica,Arial,sans-serif;
+}
+
+h3 {
+    font-size: larger;
+}

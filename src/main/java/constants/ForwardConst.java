@@ -10,6 +10,7 @@ public enum ForwardConst {
     ACT_TOP("Top"),
     ACT_EMP("Employee"),
     ACT_REP("Report"),
+    ACT_KINTAI("Kintai"), // 勤怠
     ACT_AUTH("Auth"),
 
     //command
@@ -25,6 +26,7 @@ public enum ForwardConst {
     CMD_EDIT("edit"),
     CMD_UPDATE("update"),
     CMD_DESTROY("destroy"),
+    CMD_KINTAI("kintai"), // 勤怠
 
     //jsp
     FW_ERR_UNKNOWN("error/unknown"),
@@ -37,7 +39,12 @@ public enum ForwardConst {
     FW_REP_INDEX("reports/index"),
     FW_REP_SHOW("reports/show"),
     FW_REP_NEW("reports/new"),
-    FW_REP_EDIT("reports/edit");
+    FW_REP_EDIT("reports/edit"),
+    FW_KINTAI_INDEX("kintai/index"), // 勤怠
+    FW_KINTAI_SHOW("kintai/show"),
+    FW_KINTAI_NEW("kintai/new"),
+    FW_KINTAI_EDIT("kintai/edit");
+
 
     /**
      * 文字列
