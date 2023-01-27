@@ -136,8 +136,6 @@ public class KintaiAction extends ActionBase {
     //@throws IOException
     public void show() throws ServletException, IOException {
 
-        System.out.println("show start");
-
         //idを条件に出勤データを取得する
         KintaiView kv = service_k.findOne(toNumber(getRequestParam(AttributeConst.KINTAI_ID)));
 

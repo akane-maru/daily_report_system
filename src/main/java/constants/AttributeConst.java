@@ -52,7 +52,7 @@ public enum AttributeConst {
     // 勤怠管理
     KINTAI("kintai"),
     KINTAI_COUNT("kintai_count"),
-    KINTAI_ID("kintai_id"),
+    KINTAI_ID("id"),
     KINTAI_DATE("kintai_date"),
     KINTAI_BEGIN("kintai_begin"),
     KINTAI_FINISH("kintai_finish");
